@@ -1,29 +1,32 @@
-# Innova OS | An Alternative For Windows OS
+# Innova OS | AI-First Enterprise WebDesktop
 
-Innova OS is a high-performing Web Operating System built up for the modern web. It features a fully functional desktop environment with integrated applications, secure authentication, and a virtual backend.
+Innova OS is a next-generation, glassmorphic Web Operating System featuring an integrated **Neural Engine** for autonomous app orchestration and system management. Built for speed and intelligence, it redefines the browser-based desktop experience.
 
-## Key Features
-- **Fluent Design UI**: A premium Windows 11 inspired interface using Glassmorphism, 3D CSS rendering, and smooth bounce-in animations.
-- **Virtualized OS Engine**: A custom JavaScript engine that handles window management, Z-index stacking, and real-time process simulation.
-- **Secure Authentication**: Integrated Login/Sign-up system with virtualized user session persistence.
-- **Application Suite**: 
-    - **Notepad**: Persistent local disk storage (Virtual SSD simulation).
-    - **Calculator**: Real-time arithmetic engine.
-    - **Terminal**: A functioning secure shell with command-line utilities.
-    - **File Explorer**: Virtual file system navigation.
-    - **Browser**: Integrated web browsing capabilities using sandboxed iframes.
+## 🧠 Core Innovation: Innova Neural Engine
+Unlike traditional web desktops, Innova OS features a built-in **AI Assistant** capable of:
+- **Autonomous Orchestration**: Open any system application (Notepad, Browser, Terminal, etc.) via natural language commands.
+- **System Health Monitoring**: Real-time diagnostic reporting on virtual memory and storage health.
+- **Context-Aware Assistance**: Intelligent troubleshooting and workflow optimization.
 
-## How to Use
-1. **Start System**: On page load, you will be greeted by the Innova Lock Screen.
-2. **Access**: Use the default credentials `admin / admin` or create a new account using the Sign Up feature.
-3. **Navigation**: Use the centered **Taskbar** to open the **Start Menu**. 
-4. **Window Management**: 
-    - Windows can be dragged across the desktop surface.
-    - Use the `_` button to minimize to the taskbar.
-    - Use the `X` button to terminate the application process.
-5. **Right-Click**: Right-click anywhere on the desktop to access the system context menu (Refresh/Info).
+## 🚀 Key Features
+- **Fluent Design UI**: Official Windows 11 Bloom wallpaper integration with 3D CSS rendering and smooth micro-animations.
+- **Virtualized OS Engine**: Custom JavaScript factory for window management and Z-index process stacking.
+- **Secure Authentication**: Multi-user session persistence with encrypted credential simulation.
+- **Integrated Application Suite**: 
+    - **Smart Browser**: Intelligent URL routing with fallback search capabilities.
+    - **Camera App**: Hardware-integrated snapshot engine with local disk synchronization.
+    - **Secure Terminal**: Command-line utilities for root administration.
+    - **File Explorer**: Advanced navigation of virtualized directories and media.
 
-## Technology
-- **Frontend**: Vanilla HTML5, CSS3 (Modern Flexbox/Grid), JavaScript (ES6+).
-- **Backend Simulation**: Asynchronous Promise-based logic for server-side response emulation.
-- **Storage**: Browser LocalStorage for persistent user data and "Virtual Disk" simulation.
+## 💻 Technical Stack
+- **Architecture**: Vanilla ES6+ JavaScript, CSS3 Grid/Flexbox, Semantic HTML5.
+- **Engine**: Promise-based asynchronous orchestration layer.
+- **Persistence**: Virtual Disk simulation using Browser LocalStorage.
+
+## 🛠️ How to Use
+1. **Login**: Use `admin / admin` to bypass the lock screen.
+2. **AI Control**: Open the **Innova AI** app and type *"Open Notepad"* or *"Launch Browser"* to see the autonomous orchestration in action.
+3. **Diagnostics**: Ask the AI for a *"System Status"* to see real-time virtual health reporting.
+
+---
+*Created for the 2026 Hackathon - Pushing the boundaries of Intelligent Web Platforms.*

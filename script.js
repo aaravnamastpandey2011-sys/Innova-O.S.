@@ -70,6 +70,9 @@ function p_app(app, ico) {
     else if (app === 'terminal') {
         body = '<div id="to" style="background:#0f172a; color:#4ade80; height:200px; padding:15px; font-family:monospace; overflow:auto; border-radius:8px; line-height:1.5;">Innova OS [Secure Shell]<br>Ready for command...</div><input id="ti" style="width:100%; background:#0f172a; color:white; border:none; outline:none; font-family:monospace; padding:10px; margin-top:5px; border-radius:4px;" onkeypress="p_rt(event)">';
     }
+    else if (app === 'ai') {
+        body = '<div id="ai_o" style="background:#f0f7ff; color:#000; height:200px; padding:12px; font-size:13px; overflow:auto; border-radius:8px; border:1px solid #cce;"><b>Innova Assistant:</b> Hello! I am your AI. How can I help you?</div><input id="ai_i" style="width:100%; padding:10px; margin-top:8px; border:1px solid #ccc; border-radius:5px;" placeholder="Ask me something..." onkeypress="if(event.key===\'Enter\')p_ai()">';
+    }
 
     w.innerHTML = '<div class="h"><span>'+ico+' '+app.toUpperCase()+'</span><div><button onclick="p_sz(\''+id+'\', \'min\')">_</button><button style="background:#ef4444; color:white;" onclick="this.closest(\'.win\').remove()">X</button></div></div><div style="padding:15px;">'+body+'</div>';
     
@@ -86,6 +89,7 @@ function p_go(b) {
 function p_cp() {
     var v = document.getElementById('cam_v');
     var c = document.getElementById('cam_c');
+    if(!v) return;
     c.width = v.videoWidth; c.height = v.videoHeight;
     c.getContext('2d').drawImage(v, 0, 0);
     localStorage.setItem('sys_p', c.toDataURL('image/jpeg'));
@@ -114,6 +118,51 @@ function p_rt(e) {
         else o.innerHTML += "<br>Unknown Error: '" + c + "' not found";
         i.value = ""; o.scrollTop = o.scrollHeight;
     }
+}
+
+function p_ai() {
+    var i = document.getElementById('ai_i'); var o = document.getElementById('ai_o');
+    var q = i.value.toLowerCase(); o.innerHTML += "<br><br><span style='color:#0078d4'><b>You:</b> " + i.value + "</span>";
+    var a = "";
+    
+    if (q.includes("open") || q.includes("launch")) {
+        var t = "";
+        if (q.includes("note")) { p_app('notepad', '📝'); t = "Notepad"; }
+        else if (q.includes("calc")) { p_app('calc', '🧮'); t = "Calculator"; }
+        else if (q.includes("web") || q.includes("browser")) { p_app('browser', '🌐'); t = "Browser"; }
+        else if (q.includes("file")) { p_app('files', '📁'); t = "File Explorer"; }
+        else if (q.includes("term") || q.includes("cmd")) { p_app('terminal', '💻'); t = "Terminal"; }
+        else if (q.includes("cam")) { p_app('camera', '📷'); t = "Camera"; }
+        if (t) a = "System: " + t + " process initiated. Stand by.";
+    }
+    else if (q.includes("background") || q.includes("theme") || q.includes("color")) {
+        var c = q.split(' ').pop();
+        document.body.style.background = c;
+        document.body.style.backgroundImage = "none";
+        a = "System: Desktop environment recalibrated to '" + c + "'.";
+    }
+    else if (q.includes("close all")) {
+        document.querySelectorAll('.win').forEach(w => w.remove());
+        document.getElementById('p_tb').innerHTML = "";
+        a = "System: All processes terminated. Desktop cleared.";
+    }
+    else if (q.includes("health")) a = "Status: Virtual Core optimized. 0 latency detected.";
+    else if (q.includes("hello")) a = "Greetings, Admin. Systems are at your command.";
+    else if (q.includes("clear")) { o.innerHTML = "History purged."; return; }
+    else {
+        a = "Analyzing unknown query... Redirecting to global web nodes for answer.";
+        p_app('browser', '🌐');
+        setTimeout(() => {
+            var f = document.querySelectorAll('iframe');
+            var l = f[f.length-1]; if(l) l.src = "https://duckduckgo.com/?q=" + encodeURIComponent(i.value);
+        }, 500);
+    }
+
+    if(a) { 
+        var d = document.createElement('div'); d.innerHTML = "<b>Innova:</b> " + a;
+        o.appendChild(d); o.scrollTop = o.scrollHeight;
+    }
+    i.value = "";
 }
 
 function p_sr(q) {
