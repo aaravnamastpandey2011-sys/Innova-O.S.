@@ -1,41 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><title>Innova OS | Alternate web OS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innova OS | Alternate Web OS</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body oncontextmenu="doRightClick(event)">
-    <div id="lock_screen" class="login-overlay">
-        <div class="login-box"><h1>Innova OS | Login</h1><input type="password" id="pass_field" placeholder="Password (admin)"><button onclick="handleLogin()">Sign In</button></div>
-    </div>
-
-    <div id="desktop" class="surface">
-        <div class="icons-grid">
-            <div class="shortcut" onclick="openApp('browser', '🌐')"><div class="app-img purple">🌐</div><span>Browser</span></div>
-            <div class="shortcut" onclick="openApp('files', '📁')"><div class="app-img gold">Files</div><span>Files</span></div>
-            <div class="shortcut" onclick="openApp('notepad', '📝')"><div class="app-img blue">📝</div><span>Notepad</span></div>
-            <div class="shortcut" onclick="openApp('calc', '🧮')"><div class="app-img grey">🧮</div><span>Calc</span></div>
-        </div>
-        <div id="win_layer"></div>
-    </div>
-
-    <div id="start_flyout" class="start-menu-11">
-        <div class="pinned-apps">
-            <div onclick="openApp('browser', '🌐'); toggleStart()">🌐<br>Web</div>
-            <div onclick="openApp('files', '📁'); toggleStart()">📁<br>Files</div>
-            <div onclick="openApp('notepad', '📝'); toggleStart()">📝<br>Notes</div>
-            <div onclick="openApp('calc', '🧮'); toggleStart()">🧮<br>Calc</div>
-            <div onclick="window.location.reload()">🔄<br>Restart</div>
+<body oncontextmenu="p_rc(event)">
+    <div id="p_ls" class="l-scr">
+        <div class="l-box">
+            <h1 id="p_lt">Innova OS</h1>
+            <div id="p_af">
+                <input type="text" id="p_em" placeholder="Username">
+                <input type="password" id="p_pw" placeholder="Password (admin)">
+                <button onclick="p_lg()">Sign In</button>
+                <p onclick="p_sm()" id="p_tm">New Account</p>
+            </div>
         </div>
     </div>
 
-    <div class="taskbar-11">
-        <div class="taskbar-center">
-            <div class="start-icon" onclick="toggleStart()">🪐</div>
-            <div id="taskbar_items" class="app-list"></div>
+    <div id="p_ds" class="p-surf">
+        <div class="i-grid">
+            <div class="unit" onclick="p_app('notepad', '📝')">
+                <div class="u-img g-blue">📝</div><span>Notepad</span>
+            </div>
+            <div class="unit" onclick="p_app('calc', '🧮')">
+                <div class="u-img g-grey">🧮</div><span>Calc</span>
+            </div>
+            <div class="unit" onclick="p_app('camera', '📷')">
+                <div class="u-img g-red">📷</div><span>Camera</span>
+            </div>
+            <div class="unit" onclick="p_app('browser', '🌐')">
+                <div class="u-img g-purp">🌐</div><span>Browser</span>
+            </div>
+            <div class="unit" onclick="p_app('files', '📁')">
+                <div class="u-img g-gold">📁</div><span>Files</span>
+            </div>
+            <div class="unit" onclick="p_app('terminal', '💻')">
+                <div class="u-img g-dark">💻</div><span>Terminal</span>
+            </div>
         </div>
-        <div class="time-display" id="time_clock">00:00</div>
+        <div id="p_wl"></div>
     </div>
+
+    <div id="p_sf" class="m-11">
+        <div class="p-s">
+            <input type="text" placeholder="Search applications..." onkeyup="p_sr(this.value)">
+        </div>
+        <div class="p-a">
+            <div onclick="p_app('notepad', '📝'); p_ts()">📝<br>Notes</div>
+            <div onclick="p_app('calc', '🧮'); p_ts()">🧮<br>Calc</div>
+            <div onclick="p_app('browser', '🌐'); p_ts()">🌐<br>Web</div>
+            <div onclick="p_app('files', '📁'); p_ts()">📁<br>Files</div>
+            <div onclick="p_app('terminal', '💻'); p_ts()">💻<br>CMD</div>
+            <div onclick="window.location.reload()">🔄<br>Reset</div>
+        </div>
+        <div class="p-f">👤 Innova Admin</div>
+    </div>
+
+    <div class="t-11">
+        <div class="t-c">
+            <div class="s-i" onclick="p_ts()">🪐</div>
+            <div id="p_tb" class="a-l"></div>
+        </div>
+        <div class="t-d" id="p_clk">00:00</div>
+    </div>
+
+    <div id="p_cm" class="c-m">
+        <div onclick="window.location.reload()">Refresh OS</div>
+        <div onclick="alert('Innova OS v5.0 Final')">Build Info</div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
