@@ -33,3 +33,7 @@ body { width: 100vw; height: 100vh; overflow: hidden; background: url('https://i
 .time-display { font-size: 12px; font-weight: bold; position: absolute; right: 20px; }
 .app-list { display: flex; gap: 10px; }
 .task-tab { padding: 5px; font-size: 22px; cursor: pointer; }
+
+.gold { background: linear-gradient(135deg, #fbbf24, #d97706); }
+.file-row { display: flex; align-items: center; gap: 10px; padding: 10px; cursor: pointer; border-bottom: 1px solid #eee; }
+.file-row:hover { background: rgba(0,0,0,0.05); }

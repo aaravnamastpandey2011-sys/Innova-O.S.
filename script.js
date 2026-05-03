@@ -36,6 +36,22 @@ function openApp(app, ico) {
         body += '</div>';
     }
     else if (app === 'terminal') body = '<div id="to" style="background:black; color:lime; height:150px; padding:5px; font-family:monospace; overflow:auto;">Terminal ready...</div><input id="ti" style="width:100%; background:black; color:white; border:none;" onkeypress="runTerm(event)">';
+    else if (app === 'files') {
+        var noteExists = localStorage.getItem('my_note') ? "✅ user_note.txt" : "❌ Empty";
+        body = `
+            <div style="display:flex; height:200px;">
+                <div style="width:30%; border-right:1px solid #ddd; padding:5px; font-size:12px;">
+                    <b>Quick Access</b><br>
+                    📁 Desktop<br>📁 Documents<br>📁 C: Drive
+                </div>
+                <div style="width:70%; padding:10px;">
+                    <div class="file-row" onclick="alert('Opening Documents...')">📂 My Documents</div>
+                    <div class="file-row" onclick="openApp('notepad', '📝')">📄 ${noteExists}</div>
+                    <div class="file-row" onclick="alert('Disk is empty')">📄 system_log.log</div>
+                </div>
+            </div>
+        `;
+    }
 
     w.innerHTML = `
         <div class="window-top"><span>${ico} ${app.toUpperCase()}</span>
@@ -44,6 +60,7 @@ function openApp(app, ico) {
         <div style="padding:15px;">${body}</div>`;
     
     h.appendChild(w); addTab(app, ico, id); drag(w);
+
 }
 
 function sz(id, m) { var el = document.getElementById(id); if (m === 'min') el.style.display = 'none'; }
