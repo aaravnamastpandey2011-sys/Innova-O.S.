@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><title>Innova OS | the alternative to windows</title>
+    <meta charset="UTF-8"><title>Innova OS | Alternate web OS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body oncontextmenu="doRightClick(event)">
     <div id="lock_screen" class="login-overlay">
-        <div class="login-box"><h1>INNOVA OS</h1><input type="password" id="pass_field" placeholder="Password (admin)"><button onclick="handleLogin()">Sign In</button></div>
+        <div class="login-box"><h1>Innova OS | Login</h1><input type="password" id="pass_field" placeholder="Password (admin)"><button onclick="handleLogin()">Sign In</button></div>
     </div>
 
     <div id="desktop" class="surface">
         <div class="icons-grid">
-            <div class="shortcut" onclick="openApp('files', '📁')"><div class="app-img gold">📁</div><span>Files</span></div>
+            <div class="shortcut" onclick="openApp('browser', '🌐')"><div class="app-img purple">🌐</div><span>Browser</span></div>
+            <div class="shortcut" onclick="openApp('files', '📁')"><div class="app-img gold">Files</div><span>Files</span></div>
             <div class="shortcut" onclick="openApp('notepad', '📝')"><div class="app-img blue">📝</div><span>Notepad</span></div>
             <div class="shortcut" onclick="openApp('calc', '🧮')"><div class="app-img grey">🧮</div><span>Calc</span></div>
         </div>
@@ -20,6 +21,7 @@
 
     <div id="start_flyout" class="start-menu-11">
         <div class="pinned-apps">
+            <div onclick="openApp('browser', '🌐'); toggleStart()">🌐<br>Web</div>
             <div onclick="openApp('files', '📁'); toggleStart()">📁<br>Files</div>
             <div onclick="openApp('notepad', '📝'); toggleStart()">📝<br>Notes</div>
             <div onclick="openApp('calc', '🧮'); toggleStart()">🧮<br>Calc</div>
